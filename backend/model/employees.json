@@ -8,5 +8,10 @@
         "id":2,
         "firstName": "Ellen",
         "lastName": "Grace"
+    },
+    {
+        "id":3,
+        "firstName": "Lorem",
+        "lastName": "Ipsum"
     }
 ]

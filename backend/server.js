@@ -6,9 +6,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { errorHandler } from './middleware/errorHandler.js';
 
-import subdirRoutes from './routes/subdir.js'
+
 import rootRoutes from './routes/root.js'
 import employeesRoutes from './routes/api/employees.js'
+import { corsOptions } from './configuration/corsOptions.js';
 
 dotenv.config()
 
@@ -19,22 +20,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-
-// corss origin resource sharing
-const whiteList = ['http://localhost:3500','http://localhost:3500/','http://127.0.0.1:3500','http://localhost:3000','http://127.0.0.1:3500','http://localhost:3500/','https://www.google.com'];
-const corsOptions = {
-    origin: (origin,callback)=>{
-        console.log('whitelist origin',whiteList.indexOf(origin))
-        // !origin equivalent of undefined or false
-        console.log('origin ==> ',origin)
-        if(whiteList.indexOf(origin) !== -1 || !origin){
-            callback(null,true);
-        }else{
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    optionsSuccessStatus: 200  
-}
 app.use(cors(corsOptions));
 
 
@@ -47,11 +32,9 @@ app.use(express.json());
 
 // serve static files
 app.use('/',express.static(path.join(__dirname, './public')))
-app.use('/subdir',express.static(path.join(__dirname, './public')))
 
 // routes
 app.use('/',rootRoutes)
-app.use('/subdir',subdirRoutes)
 app.use('/employees',employeesRoutes)
 
 app.get("/new-page(.html)?",(req,res)=>{

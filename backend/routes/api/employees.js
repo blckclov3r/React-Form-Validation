@@ -1,49 +1,18 @@
 import express from 'express';
-import { readFile } from 'fs/promises';
 
-const employees = JSON.parse(
-  await readFile(
-    new URL('../../model/employees.json', import.meta.url)
-  )
-);
+import { createEmployee, deleteEmployee, getAllEmployees, getEmployee, updateEmployee } from '../../controllers/employeeControllers.js';
 
 const router = express.Router();
 
-router.get('/',(req,res,next)=>{
-    res.status(200).json(employees);
-})
+router.get('/',getAllEmployees)
 
-router.post('/',(req,res)=>{
-    const {firstName, lastName} = req.body;
-    res.status(200).json({
-        "firstName": firstName,
-        "lastName": lastName
-    })
-});
+router.post('/',createEmployee);
 
+router.get('/:id',getEmployee);
 
-router.get('/:id',(req,res,next)=>{
-    const id = req.params.id;
-    res.status(200).json({
-        "id": `here's your ${id}`
-    });
-});
+router.put('/:id',updateEmployee);
 
-router.put('/:id',(req,res)=>{
-    const id = req.params.id;
-    res.status(200).json({
-        "id": `here's your updated ${id}`
-    });
-});
-
-router.delete('/:id',(req,res)=>{
-    const id = req.params.id;
-    res.status(200).json({
-        "id": `here's your deleted ${id}`
-    });
-});
-
-
+router.delete('/:id',deleteEmployee);
 
 export default router;
 
