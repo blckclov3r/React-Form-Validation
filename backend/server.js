@@ -9,6 +9,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 
 import rootRoutes from './routes/root.js'
 import employeesRoutes from './routes/api/employees.js'
+import registerRoutes from './routes/api/register.js'
 import { corsOptions } from './configuration/corsOptions.js';
 
 dotenv.config()
@@ -36,6 +37,7 @@ app.use('/',express.static(path.join(__dirname, './public')))
 // routes
 app.use('/',rootRoutes)
 app.use('/employees',employeesRoutes)
+app.use('/register',registerRoutes)
 
 app.get("/new-page(.html)?",(req,res)=>{
     res.sendFile(path.join(__dirname,'views','new-page.html'))

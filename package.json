@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/blckclov3r/React-Form-Validation#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "date-fns": "^2.29.1",
     "dotenv": "^16.0.1",
