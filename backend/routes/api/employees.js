@@ -2,6 +2,7 @@ import express from 'express';
 
 import { createEmployee, deleteEmployee, getAllEmployees, getEmployee, updateEmployee } from '../../controllers/employeeControllers.js';
 
+
 const router = express.Router();
 
 router.get('/',getAllEmployees)

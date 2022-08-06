@@ -22,7 +22,7 @@ const userDB = {
 
 
 export const handleNewUser = async (req,res)=>{
-    
+
     const {user,pwd} = req.body;
 
     // console.log(user,pwd)
@@ -51,7 +51,7 @@ export const handleNewUser = async (req,res)=>{
         // console.log('newUser',newUser)
         await fsPromises.writeFile(
             path.join(__dirname,'..','model','users.json'),
-            JSON.stringify(userDB.users,0,2)
+            JSON.stringify(userDB.users)
         )
 
         res.status(200).json({

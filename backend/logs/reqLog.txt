@@ -8,3 +8,4 @@
 20220806	04:08:56	8cf2778f-a337-4e91-be65-b8d2ecbcd806	POST	undefined	/employees/
 20220806	06:17:13	a79db9d4-c4e9-428a-a43a-ec78965bbf04	GET	undefined	/
 20220806	06:17:28	d0cd3052-d1a2-4a69-8a84-41fcb38fb4aa	GET	undefined	/
+20220806	19:40:52	834dbace-b4ce-417a-bce2-57f53bcdacdc	POST	undefined	/employees
