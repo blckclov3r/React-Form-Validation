@@ -22,8 +22,10 @@ const userDB = {
 
 
 export const handleNewUser = async (req,res)=>{
+    
     const {user,pwd} = req.body;
-    console.log(user,pwd)
+
+    // console.log(user,pwd)
     if(!user || !pwd){
         return res.status(400).json({
             msg: "username and password is required"
@@ -43,15 +45,18 @@ export const handleNewUser = async (req,res)=>{
             "username":user,
             "password":hashedPwd
         };
+
         userDB.users = [...userDB.users,newUser]
-        console.log('newUser',newUser)
+
+        // console.log('newUser',newUser)
         await fsPromises.writeFile(
             path.join(__dirname,'..','model','users.json'),
-            JSON.stringify(userDB.users)
+            JSON.stringify(userDB.users,0,2)
         )
-        console.log(userDB.users);
+
         res.status(200).json({
-            msg: 'users successfully created'
+            msg: 'users successfully created',
+            response: newUser
         })
     } catch (error) {
         res.status(500).json({
