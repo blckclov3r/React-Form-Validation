@@ -19,7 +19,7 @@ const userDB = {
 export const handleRefreshToken = async (req, res, next) => {
 
     const cookies = req.cookies;
-   
+
     if (!cookies?.accessToken) {
         return res.status(401).json({
             msg: "no authorization cookies is required"
@@ -44,9 +44,9 @@ export const handleRefreshToken = async (req, res, next) => {
         refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
         (err, decoded) => {
-            console.log('decoded',decoded)
-            if(err || foundUser.username !== decoded.username) return res.status(403).json("JWT VERIFY ERROR");
-            
+            console.log('decoded', decoded)
+            if (err || foundUser.username !== decoded.username) return res.status(403).json("JWT VERIFY ERROR");
+
             const accessToken = jwt.sign(
                 { "username": decoded.username },
                 process.env.ACCESS_TOKEN_SECRET,

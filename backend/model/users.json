@@ -1,1 +1,18 @@
-[null,{"id":"42f77739-d7f1-4bef-9c13-5cd66ae27442","username":"blckclov3r","password":"$2b$10$5D7A5U0PgpPRtAtTOtfxx.0RDehVE2Jie.udYEGoZtg3BRU1TbLhW","accessToken":""}]
+[
+  {
+    "id": "42f77739-d7f1-4bef-9c13-5cd66ae27442",
+    "username": "blckclov3r",
+    "password": "$2b$10$5D7A5U0PgpPRtAtTOtfxx.0RDehVE2Jie.udYEGoZtg3BRU1TbLhW",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJsY2tjbG92M3IiLCJpYXQiOjE2NjAwNTg2NDQsImV4cCI6MTY2MDA1ODcwNH0.phEKQy5UHEis-LU6uZ73im-wa4QOZqbl8kklEqu50qQ"
+  },
+  {
+    "id": "a8df246f-3511-4894-b1ac-afedaa74c6a8",
+    "username": "aljun",
+    "password": "$2b$10$.4ypT7PfdKrthKtS/XP2CedjsxxVQ3O2O/gXUUB4cIa2Qg5qi6HAu"
+  },
+  {
+    "id": "635f9ebc-d83c-4cb1-81cc-a5b4fb6af090",
+    "username": "ellen",
+    "password": "$2b$10$PGYIoflXemjQOI1Vh/peQuSrRgdL75P2ZQAB7a85OtF2VnMLdkFIC"
+  }
+]

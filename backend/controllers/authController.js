@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt'
-import { v4 as uuidv4 } from 'uuid';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 import { readFile } from 'fs/promises';
@@ -24,13 +23,17 @@ dotenv.config();
 const fsPromises = fs.promises;
 
 export const handleLogin = async (req,res,next) =>{
+
     const {user,pwd} = req.body;
+
+
     if(!user || !pwd){
         return res.status(400).json({
             msg: "username and password is required"
         })
     }
-    const foundUser = userDB.users.find(person=>person.username === user);
+    const foundUser = userDB.users?.find(person=>person.username === user);
+    
     if(!foundUser){
         // create JWTs
         return res.status(401).json({
