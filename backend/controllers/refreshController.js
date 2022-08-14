@@ -44,11 +44,16 @@ export const handleRefreshToken = async (req, res, next) => {
         refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
         (err, decoded) => {
-            console.log('decoded', decoded)
+            // console.log('decoded', decoded)
             if (err || foundUser.username !== decoded.username) return res.status(403).json("JWT VERIFY ERROR");
-
+            const roles = Object.values(foundUser.roles);
             const accessToken = jwt.sign(
-                { "username": decoded.username },
+                {
+                    "UserInfo": {
+                        "username": decoded.username,
+                        "roles": roles
+                    }
+                },
                 process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: '30s' } //for demo purposes
             );

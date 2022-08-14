@@ -42,8 +42,16 @@ export const handleLogin = async (req,res,next) =>{
     }
     const match = await bcrypt.compare(pwd,foundUser.password);
     if(match){
+
+        const roles = Object.values(foundUser.roles);
+
         const accessToken = jwt.sign(
-            { "username": foundUser.username },
+            {
+                "UserInfo": {
+                    "username": foundUser.username,
+                    "roles": roles
+                }
+            },
             process.env.REFRESH_TOKEN_SECRET,
             {expiresIn: '60s'}
         )

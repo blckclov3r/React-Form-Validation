@@ -11,10 +11,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const users = JSON.parse(
-    await readFile(
-      new URL('../model/users.json', import.meta.url)
-    )
-);
+    await readFile(new URL('../model/users.json', import.meta.url))
+)
 
 const userDB = {
     users
@@ -43,6 +41,7 @@ export const handleNewUser = async (req,res)=>{
         const newUser = {
             "id": uuidv4(),
             "username":user,
+            "roles": {"User": 2001},
             "password":hashedPwd
         };
 
